@@ -5,3 +5,4 @@
     product_id: '{23170F69-40C1-2702-2401-000001000000}'
     # We use a variable here instead of hardcoding 'present'
     state: "{{ app_state | default('present') }}"
+  notify: "Reboot Windows Server" # This matches the name in handlers
