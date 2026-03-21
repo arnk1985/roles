@@ -6,9 +6,7 @@
     # We use a variable here instead of hardcoding 'present'
     state: "{{ app_state | default('present') }}"
  register: sevenzip_result
-- name: Reboot immediately after 7-Zip change
+ 
+- name: Force Reboot (No Condition)
   ansible.windows.win_reboot:
-    msg: "Test Server: Rebooting immediately due to 7-Zip {{ app_state | default('present') }}"
-    reboot_timeout: 600
-  # This triggers ONLY if 7-Zip was added or removed
-  when: sevenzip_result.changed
+    msg: "Testing if reboot works at all"
