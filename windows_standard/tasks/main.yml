@@ -6,11 +6,3 @@
     # We use a variable here instead of hardcoding 'present'
     state: "{{ app_state | default('present') }}"
  register: sevenzip_result
-
-- name: Debug Output
-  ansible.builtin.debug:
-    var: sevenzip_result
- 
-- name: Force Reboot (No Condition)
-  ansible.windows.win_reboot:
-    msg: "Testing if reboot works at all"
