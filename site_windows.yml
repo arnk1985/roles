@@ -1,1 +1,5 @@
-
+---
+- name: Apply Standard Build to Windows Servers
+  hosts: [windows]
+  roles:
+    - windows_standard
