@@ -1,0 +1,5 @@
+---
+- name: Reboot Windows Server
+  ansible.windows.win_reboot:
+    msg: "Rebooting after software change in assigned window"
+ 
