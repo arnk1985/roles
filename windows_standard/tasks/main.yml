@@ -5,4 +5,11 @@
     product_id: '{23170F69-40C1-2702-2401-000001000000}'
     # We use a variable here instead of hardcoding 'present'
     state: "{{ app_state | default('present') }}"
-  notify: "Reboot Windows Server" # This matches the name in handlers
+ register: sevenzip_result
+
+- name: Reboot immediately after 7-Zip change
+  ansible.windows.win_reboot:
+    msg: "Test Server: Rebooting immediately due to 7-Zip {{ app_state | default('present') }}"
+    pre_reboot_delay: 5
+  # This triggers ONLY if 7-Zip was added or removed
+  when: sevenzip_result.changed
