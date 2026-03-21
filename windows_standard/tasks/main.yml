@@ -1,11 +1,7 @@
 ---
-- name: Create Maintenance Directory
-  ansible.windows.win_file:
-    path: C:\Maintenance
-    state: directory
-
-- name: Install 7-Zip
+- name: Manage 7-Zip Status
   ansible.windows.win_package:
     path: https://www.7-zip.org/a/7z2401-x64.msi
     product_id: '{23170F69-40C1-2702-2401-000001000000}'
-    state: present
+    # We use a variable here instead of hardcoding 'present'
+    state: "{{ app_state | default('present') }}"
