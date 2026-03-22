@@ -4,6 +4,6 @@
     path: https://www.7-zip.org/a/7z2401-x64.msi
     product_id: '{23170F69-40C1-2702-2401-000001000000}'
     # We use a variable here instead of hardcoding 'present'
-    state: "{{ app_state | default('present') }}"
+    state: "{{ app_state | default('absent') }}"
   register: sevenzip_result
 
